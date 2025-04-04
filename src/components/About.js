@@ -1,13 +1,18 @@
-/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
+import UserDetails from "./userdetails";
 
+class AboutUser extends React.Component {
+  // // constructor(props) {
+  //   super(props);
+  // }
+  render() {
+    return (
+      
+      <div>
+        <UserDetails name={"Ronak jain"}/>
+      </div>
+    );
+  }
+}
 
-const About = () => {
-  return (
-
-    <div>
-      <p>This is my About page</p>
-    </div>
-  );
-};
-
-export default About;
+export default AboutUser;

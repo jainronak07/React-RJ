@@ -1,12 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Header } from "./src/app/header";
 import { Body } from "./src/app/body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import About from "./src/components/About";
+
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
+import RestrauntMenu from "./src/components/RestrauntMenuCard";
 const MainAPP = () => {
   return (
     <div className="mainapp">
@@ -15,6 +16,8 @@ const MainAPP = () => {
     </div>
   );
 };
+
+const About= lazy(()=>import("./src/components/About"))
 
 const appRoute = createBrowserRouter([
   {
@@ -28,12 +31,17 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <Suspense fallback={<h1>LOADING LAZY....</h1>}><About/></Suspense>,
       },
       {
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path:"/restraunt/:resId",
+        element:<RestrauntMenu/>
+
+      }
 
     ]
   },

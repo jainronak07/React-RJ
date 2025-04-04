@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "<!-- \r chapter 1- 3\r {Functional component and all } -->",
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.3",
     "ansi-styles": "^4.3.0",
     "argparse": "^2.0.1",
     "base-x": "^3.0.11",
@@ -70,7 +71,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-refresh": "^0.16.0",
-    "react-router": "^6.14.2",
     "react-router-dom": "6.4",
     "regenerator-runtime": "^0.14.1",
     "resolve-from": "^4.0.0",
@@ -79,6 +79,7 @@
     "semver": "^7.7.1",
     "srcset": "^5.0.1",
     "supports-color": "^7.2.0",
+    "tailwindcss": "^4.1.3",
     "term-size": "^2.2.1",
     "timsort": "^0.3.0",
     "to-regex-range": "^5.0.1",

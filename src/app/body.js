@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { RestrauntCard } from "./restrauntCard";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../util/useOnlineStatus";
+import Shimer from "../components/Shimer";
 
 export const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
   const [filterRes, setfilterRes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   console.log(searchInput);
+
+  const onlineStatus= useOnlineStatus()
 
   useEffect(() => {
     fetchData();
@@ -22,47 +27,57 @@ export const Body = () => {
     setListOfRes(restaurants);
     setfilterRes(restaurants);
 
-  //   fetch("https://www.swiggy.com/dapi/restaurants/list/update", {
-  //     method: "POST",
-  //     headers: {
-  //         "accept": "application/json, text/plain, */*",
-  //         "accept-language": "en-US,en;q=0.9",
-  //         "content-type": "application/json",
-  //         "x-csrf-token": "PUT_YOUR_ACTUAL_CSRF_TOKEN_HERE",
-  //         "x-device-id": "PUT_YOUR_DEVICE_ID_HERE",
-  //         "referer": "https://www.swiggy.com/",
-  //         // If they use any Authorization header, add it too
-  //         // "authorization": "Bearer YOUR_AUTH_TOKEN",
-  //         // Include other headers you find in the network tab
-  //     },
-  //     body: JSON.stringify({
-  //         lat: 28.5355161,           // example latitude
-  //         lng: 77.3910265,           // example longitude
-  //         nextOffset: "CJhlELQ4KICY0fqu+LbXdzCnEzgE", // you will find this in the payload of the real request
-  //         widgetOffset: {},
-  //         filters: {},
-  //         seoParams: {},
-  //         page_type: "DESKTOP_WEB_LISTING"
-  //     })
-  // })
-  // .then(response => response.json())
-  // .then(data => console.log(data))
-  // .catch(err => console.error(err));
-  
+   
+
+    //   fetch("https://www.swiggy.com/dapi/restaurants/list/update", {
+    //     method: "POST",
+    //     headers: {
+    //         "accept": "application/json, text/plain, */*",
+    //         "accept-language": "en-US,en;q=0.9",
+    //         "content-type": "application/json",
+    //         "x-csrf-token": "PUT_YOUR_ACTUAL_CSRF_TOKEN_HERE",
+    //         "x-device-id": "PUT_YOUR_DEVICE_ID_HERE",
+    //         "referer": "https://www.swiggy.com/",
+    //         // If they use any Authorization header, add it too
+    //         // "authorization": "Bearer YOUR_AUTH_TOKEN",
+    //         // Include other headers you find in the network tab
+    //     },
+    //     body: JSON.stringify({
+    //         lat: 28.5355161,           // example latitude
+    //         lng: 77.3910265,           // example longitude
+    //         nextOffset: "CJhlELQ4KICY0fqu+LbXdzCnEzgE", // you will find this in the payload of the real request
+    //         widgetOffset: {},
+    //         filters: {},
+    //         seoParams: {},
+    //         page_type: "DESKTOP_WEB_LISTING"
+    //     })
+    // })
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(err => console.error(err));
   };
 
-  return (
-    <div className="body">
-      <div>
+ 
+
+  if(!onlineStatus)
+  {
+    return (
+      <h1>"You are Offline please connect to Internet"</h1>
+    )
+  }
+
+  return listOfRes.length === 0 ? <Shimer /> : (
+    <div >
+      <div className="m-2">
         <input
-          className="searchBar"
+          className="border-2 border-black rounded-2xl px-4 p-2 m-2 placeholder-gray-400 w-100"
           type="text"
           placeholder="Search Restraunt / dish.................."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-          className="search-btn"
+          className="border-2 p-2 m-2 w-30 bg-amber-200 rounded-2xl hover:bg-orange-400"
           onClick={() => {
             const filteredList = listOfRes.filter((res) =>
               res.info.name.toLowerCase().includes(searchInput)
@@ -73,7 +88,7 @@ export const Body = () => {
           Search
         </button>
         <button
-          className="filter-btn"
+          className="border-2 p-2 m-2 w-50 bg-amber-200 rounded-2xl hover:bg-orange-400"
           onClick={() => {
             const filteredList = filterRes.filter(
               (res) => res.info.avgRatingString > 4
@@ -85,10 +100,12 @@ export const Body = () => {
         </button>
       </div>
 
-      <div className="resContainer">
+      <div className="flex flex-wrap ">
         {filterRes.map((restraunt) => (
           // console.log(restraunt.info.id)
-          <RestrauntCard key={restraunt.info.id} resData={restraunt} />
+          <Link to={"/restraunt/"+ restraunt.info.id} key={restraunt.info.id}>
+            <RestrauntCard resData={restraunt} />
+          </Link>
         ))}
       </div>
     </div>

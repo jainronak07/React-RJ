@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,9 +36,9 @@
   width: 230px;
   height: 200px;
   padding: 5;
-}
+} */
 
-.Card {
+/* .Card {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
@@ -57,7 +57,7 @@
 .searchBar {
   padding: 5px;
   width: 500px;
-  margin-top: 10px; /* Add space above */
+  margin-top: 10px; 
   margin-bottom: 10px;
   border-radius: 20;
   border-color: black;
@@ -72,7 +72,7 @@
   width: 100;
   cursor: pointer;
   
-  box-shadow: 5px 5px 5px rgba(54, 160, 59, 0.2); /* Initial shadow */
+  box-shadow: 5px 5px 5px rgba(54, 160, 59, 0.2);
 }
 
 .filter-btn{
@@ -83,14 +83,16 @@
   width: 200px;
   cursor: pointer;
 
-  box-shadow: 5px 5px 5px rgba(17, 17, 17, 0.2); /* Initial shadow */
+  box-shadow: 5px 5px 5px rgba(17, 17, 17, 0.2); 
 
 }
 .filter-btn:hover {
-  transform: translateY(-2px); /* Moves button slightly up */
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Increases shadow for lift effect */
+  transform: translateY(-2px); 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); 
 }
 .search-btn:hover {
-  transform: translateY(-2px); /* Moves button slightly up */
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Increases shadow for lift effect */
-}
+  transform: translateY(-2px); 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); 
+} */
+
+@import "tailwindcss";
