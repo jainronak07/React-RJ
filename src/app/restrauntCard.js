@@ -28,3 +28,14 @@ export const RestrauntCard = (props) => {
     </div>
   );
 };
+
+export const fastDeliveryLabel= (RestrauntCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-amber-600 text-white mx-2 p-2 rounded-lg -mt-1">Fast delivery</label>
+        <RestrauntCard {...props} />
+      </div>
+    );
+  };
+};

@@ -27,8 +27,8 @@ class UserDetails extends Component {
     const {name,location,id,avatar_url}=this.state.userInfo
     return (
       <div>
-        <h1>This is my About page</h1>
-        <h2>Name:{name}</h2>
+        <h1 >This is my About page</h1>
+        <h2>Name:{" Ronak Jain"}</h2>
         <h2>Location:{location}</h2>
         <h2>ID:{id}</h2>
         <img

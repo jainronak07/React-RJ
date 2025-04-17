@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { RestrauntCard } from "./restrauntCard";
+import { fastDeliveryLabel, RestrauntCard } from "./restrauntCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus";
 import Shimer from "../components/Shimer";
 
+//TODO: add update api to add all resturants
 export const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
   const [filterRes, setfilterRes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   console.log(searchInput);
 
-  const onlineStatus= useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  const FastDelResturantCard=fastDeliveryLabel(RestrauntCard)
 
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    
     const restaurants =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
     setListOfRes(restaurants);
     setfilterRes(restaurants);
-
-   
 
     //   fetch("https://www.swiggy.com/dapi/restaurants/list/update", {
     //     method: "POST",
@@ -57,17 +59,14 @@ export const Body = () => {
     // .catch(err => console.error(err));
   };
 
- 
-
-  if(!onlineStatus)
-  {
-    return (
-      <h1>"You are Offline please connect to Internet"</h1>
-    )
+  if (!onlineStatus) {
+    return <h1>"You are Offline please connect to Internet"</h1>;
   }
 
-  return listOfRes.length === 0 ? <Shimer /> : (
-    <div >
+  return listOfRes.length === 0 ? (
+    <Shimer />
+  ) : (
+    <div>
       <div className="m-2">
         <input
           className="border-2 border-black rounded-2xl px-4 p-2 m-2 placeholder-gray-400 w-100"
@@ -103,8 +102,12 @@ export const Body = () => {
       <div className="flex flex-wrap ">
         {filterRes.map((restraunt) => (
           // console.log(restraunt.info.id)
-          <Link to={"/restraunt/"+ restraunt.info.id} key={restraunt.info.id}>
-            <RestrauntCard resData={restraunt} />
+          <Link to={"/restraunt/" + restraunt.info.id} key={restraunt.info.id}>
+            {restraunt.info.sla.deliveryTime > 30 ? (
+              <RestrauntCard resData={restraunt} />
+            ) : (
+              <FastDelResturantCard resData={restraunt} />
+            )}
           </Link>
         ))}
       </div>
