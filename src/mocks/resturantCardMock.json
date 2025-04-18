@@ -1,0 +1,81 @@
+{
+  "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+  "info": {
+      "id": "634136",
+      "name": "Subway",
+      "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/21/668940b1-a3e6-488f-a0c1-c300c14df3e9_634136.JPG",
+      "locality": "Sector 98",
+      "areaName": "Gautam Buddha Nagar",
+      "costForTwo": "₹350 for two",
+      "cuisines": [
+          "sandwich",
+          "Salads",
+          "wrap",
+          "Healthy Food"
+      ],
+      "avgRating": 4.2,
+      "parentId": "2",
+      "avgRatingString": "4.2",
+      "totalRatingsString": "1.5K+",
+      "sla": {
+          "deliveryTime": 45,
+          "lastMileTravel": 4.5,
+          "serviceability": "SERVICEABLE",
+          "slaString": "45-50 mins",
+          "lastMileTravelString": "4.5 km",
+          "iconType": "ICON_TYPE_EMPTY"
+      },
+      "availability": {
+          "nextCloseTime": "2025-04-19 01:00:00",
+          "opened": true
+      },
+      "badges": {},
+      "isOpen": true,
+      "type": "F",
+      "badgesV2": {
+          "entityBadges": {
+              "imageBased": {},
+              "textBased": {},
+              "textExtendedBadges": {}
+          }
+      },
+      "aggregatedDiscountInfoV3": {
+          "header": "₹166 OFF",
+          "subHeader": "ABOVE ₹399",
+          "discountTag": "FLAT DEAL",
+          "headerTypeV2": 12
+      },
+      "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {}
+      },
+      "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+              "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+              "lottie": {},
+              "video": {}
+          }
+      },
+      "reviewsSummary": {},
+      "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      "restaurantOfferPresentationInfo": {},
+      "externalRatings": {
+          "aggregatedRating": {
+              "rating": "--"
+          }
+      },
+      "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+      "context": "seo-data-2b89e7c5-2a38-4e51-a33f-eacd7d1417f8"
+  },
+  "cta": {
+      "link": "https://www.swiggy.com/city/noida-1/subway-sector-98-gautam-buddha-nagar-rest634136",
+      "text": "RESTAURANT_MENU",
+      "type": "WEBLINK"
+  },
+  "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

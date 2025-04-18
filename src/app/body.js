@@ -17,14 +17,14 @@ export const Body = () => {
     fetchData();
   }, []);
 
-  const FastDelResturantCard=fastDeliveryLabel(RestrauntCard)
+  const FastDelResturantCard = fastDeliveryLabel(RestrauntCard);
 
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    
+
     const restaurants =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
@@ -69,9 +69,10 @@ export const Body = () => {
     <div>
       <div className="m-2">
         <input
+          data-testid="searchbtn"
           className="border-2 border-black rounded-2xl px-4 p-2 m-2 placeholder-gray-400 w-100"
           type="text"
-          placeholder="Search Restraunt / dish.................."
+          placeholder="Search Restraunt / dish....."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />

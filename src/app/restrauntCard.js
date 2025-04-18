@@ -4,7 +4,7 @@ import { CDN_URL } from "../util/constants";
 export const RestrauntCard = (props) => {
   const { resData } = props;
   return (
-    <div className="border-2 bg-gray-200 hover:bg-gray-300 px-2 m-4 h-[600px] w-[330px] ">
+    <div data-testid="resCard" className="border-2 bg-gray-200 hover:bg-gray-300 px-2 m-4 h-[600px] w-[330px] ">
       <div className=" p-5 flex justify-center">
         <img
           className="w-60 h-60 rounded-lg shadow-lg"

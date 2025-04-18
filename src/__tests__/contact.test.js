@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Contact from "../components/Contact";
 import "@testing-library/jest-dom";
 
-describe("contact us page test cases",()=>{
+// describe("contact us page test cases",()=>{
     test("contact us page should be rendered", () => {
         render(<Contact />);
         const heading = screen.getByRole("heading");
@@ -26,6 +26,6 @@ describe("contact us page test cases",()=>{
         expect(inputBox.length).toBe(2)
       });
 
-})
+// })
 
 
